@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
-# This script lists files in current directory showing only part after first dash
-for file in *-*; do
-  echo "${file#*-}"
+# This script lists files in current directory showing only part after first dash if present
+for file in *; do
+  # Skip hidden files
+  [ "${file:0:1}" = "." ] && continue
+
+  # If the file contains a dash, strip up to the first dash
+  if [[ "$file" == *-* ]]; then
+    echo "${file#*-}"
+  else
+    echo "$file"
+  fi
 done
