@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-# A Bash script that runs an infinite loop and handles SIGTERM gracefully
+# A Bash script that runs an infinite loop and prints OK when receiving SIGTERM
 
-# Trap SIGTERM and print OK when received
-trap 'echo "OK"' SIGTERM
+trap 'echo OK' SIGTERM
 
 while true
 do
